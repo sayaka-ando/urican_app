@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   with_options presence: true do
-    validates :email,              uniqueness: true
+    # validates :email,            uniqueness: { case_sensitive: false }
     validates :name              , format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/ }
-    validates :employee_number,    length: { maximum: 6 }, format: { with:/\A[0-9]+\z/}, uniqueness: true
+    validates :employee_number,    format: { with:/\A[0-9]{4}+\z/}, uniqueness: true
   end
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
