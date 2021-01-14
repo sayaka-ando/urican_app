@@ -7,7 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
       t.string :name              , null: false
-      t.integer :employee_number,     null: false
+      t.integer :employee_number,     null: false, unique: true, default: ""
 
 
       ## Recoverable
@@ -41,6 +41,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
 
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
+    add_index :users, :employee_number,      unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
   end

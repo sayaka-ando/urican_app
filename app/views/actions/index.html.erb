@@ -19,18 +19,30 @@
 <div id="container">
 
 <header>
+<nav id="menubar">
+<ul>
+  <% if user_signed_in? %>
+    <li><%= link_to current_user.name, "#", class: "user-nickname" %></li>
+    <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"logout" %></li>
+  <% else %>
+    <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+    <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+  <% end %>
+</ul>
+</nav>
+
 <h1 id="logo"><a href="index.html"><img src="images/logo.png" alt="SAMPLE SITE"></a></h1>
 <aside id="mainimg"><img src="images/mainimg.jpg" alt=""></aside>
 </header>
 
-<nav id="menubar">
+<%# <nav id="menubar">
 <ul>
 <li><a href="index.html">Home</a></li>
 <li><a href="about.html">About</a></li>
 <li><a href="gallery.html">Gallery</a></li>
 <li><a href="link.html">Link</a></li>
 </ul>
-</nav>
+</nav> %>
 
 <div id="contents">
 
