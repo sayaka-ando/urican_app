@@ -3,9 +3,9 @@
 | Column             | Type    | Options                   |
 | ------------------ | ------- | ------------------------- |
 | name               | string  | null: false               |
-| email              | string  | null: false　unique: true |
+| email              | string  | null: false  unique: true |
 | encrypted_password | string  | null: false               |
-| employee_number    | integer | null: false               |
+| employee_number    | integer | null: false  unique: true |
 
 ### Association
 
