@@ -13,7 +13,7 @@ class User < ApplicationRecord
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX, length: { minimum: 6 }
 
-  has_many :actions
+  has_many :plans
   has_one :performance
 
 end

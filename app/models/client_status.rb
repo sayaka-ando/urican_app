@@ -6,6 +6,6 @@ class ClientStatus < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
-  has_many :actions
+  has_many :plans
 
 end

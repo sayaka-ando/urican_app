@@ -3,10 +3,10 @@ class SalesStatus < ActiveHash::Base
     { id: 1, name: '--'},
     { id: 2, name: '提案'},
     { id: 3, name: '受注'},
-    { id: 3, name: '失注'}
+    { id: 4, name: '失注'}
   ]
 
   include ActiveHash::Associations
-  has_many :actions
+  has_many :plans
   
 end
