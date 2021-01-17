@@ -9,18 +9,18 @@
 
 ### Association
 
-- has_many :actions
+- has_many :plans
 - has_one :performance
 
-## actions テーブル
+## plans テーブル
 
 | Column        | Type      | Options                      |
 | ------------- | --------- | ---------------------------- |
 | title         | string    | null: false                  |
 | client        | string    | null: false                  |
 | price         | integer   | null: false                  |
-| client_status | integer   | null: false                  |
-| sales_status  | integer   | null: false                  |
+| client_status_id | integer   | null: false                  |
+| sales_status_id  | integer   | null: false                  |
 | memo          | text      | null: false                  |
 | knowledge     | text      | null: false                  |
 | user          | references|null: false, foreign_key: true|
@@ -40,7 +40,7 @@
 ### Association
 
 - belongs_to :user
-- has_many :actions
+- has_many :plans
 
 # アプリケーション名: urican
 - アプリケーション概要:	売上・提案管理、ナレッジ共有
@@ -68,4 +68,3 @@
 - データベース設計:	ER図→　https://gyazo.com/5add81091036124377a4c43891abbde2
 - ローカルでの動作方法:
 <!-- git cloneしてから、ローカルで動作をさせるまでに必要なコマンドを記述しましょう。この時、アプリケーション開発に使用した環境を併記することを忘れないでください（パッケージやRubyのバージョンなど）。 -->
-

@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_12_090628) do
+ActiveRecord::Schema.define(version: 2021_01_17_061712) do
 
-  create_table "actions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.string "client", null: false
     t.integer "price", null: false
-    t.integer "client_status", null: false
-    t.integer "sales_status", null: false
-    t.text "memo", null: false
-    t.text "knowledge", null: false
+    t.integer "client_status_id", null: false
+    t.integer "sales_status_id", null: false
+    t.text "memo"
+    t.text "knowledge"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_actions_on_user_id"
+    t.index ["user_id"], name: "index_plans_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -41,5 +41,5 @@ ActiveRecord::Schema.define(version: 2021_01_12_090628) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "actions", "users"
+  add_foreign_key "plans", "users"
 end
