@@ -55,26 +55,23 @@
   <%= link_to '新規投稿', new_plan_path %>
 
   <ul class='item-lists'>
-    <% @plan.each do |plan| %>
+    <h3 class='item-name'>
+      <div class='plan-name'>提案プラン</div>
+      <div class='plan-name'>顧客名</div>
+      <div class='plan-name'>顧客ステータス</div>
+      <div class='plan-name'>金額</div>
+      <div class='plan-name'>受注ステータス</div>
+    </h3>
+    <% @plans.each do |plan| %>
       <li class='list'>
         <%=link_to plan_path(plan) do %>
-          <div class='item-info'>
-            <h3 class='item-name'>
-              <%= plan.title %>
-            </h3>
-            <h3 class='item-name'>
-              <%= plan.client %>
-            </h3>
-            <h3 class='item-name'>
-              <%= plan.client_status.name %>
-            </h3>
-            <div class='item-price'>
-              <span><%= plan.price %>円</span>
-            </div>
-            <h3 class='item-name'>
-              <%= plan.sales_status.name %>
-            </h3>
-          </div>
+          <h3 class='item-name'>
+            <div><%= plan.title %></div>
+            <div><%= plan.client %></div>
+            <div><%= plan.client_status.name %></div>
+            <div><%= plan.price %>円</div>
+            <div><%= plan.sales_status.name %></div>
+          </h3>
         <% end %>
       </li>
     <% end %>
@@ -85,7 +82,7 @@
 
 <h2>テンプレートのご利用前に必ずお読み下さい</h2>
 
-<%# <h3>利用規約のご案内</h3>
+<h3>利用規約のご案内</h3>
 <p>このテンプレートは、<a href="https://template-party.com/">Template Party</a>にて無料配布している『初心者向けホームページテンプレート tp_beginner5』です。必ずダウンロード先のサイトの<a href="https://template-party.com/read.html">利用規約</a>をご一読の上でご利用下さい。</p>
 <p><span class="color1">■<strong>HP最下部の著作表示『Web Design:Template-Party』は無断で削除しないで下さい。</strong></span><br>
 わざと見えなく加工する事も禁止です。</p>
@@ -93,7 +90,7 @@
 <a href="https://template-party.com/">Template-Party</a>の<a href="https://template-party.com/member.html">ライセンス契約</a>を行う事でHP下部の著作を外す事ができます。</p>
 
 <h3>当テンプレートの詳しい使い方は</h3>
-<p><a href="about.html">こちらをご覧下さい。</a></p> %>
+<p><a href="about.html">こちらをご覧下さい。</a></p>
 
 </section>
 
