@@ -5,6 +5,8 @@ class PlansController < ApplicationController
 
   def index
     @plans = Plan.includes(:user).order("created_at DESC")
+    @price = Plan.where(user: current_user.id, sales_status_id: 3)
+    @price_sum = @price.sum(:price)
   end
 
   def new

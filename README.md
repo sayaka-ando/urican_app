@@ -35,7 +35,8 @@
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | goal            | integer    | null: false                    |
-| total           | references | null: false, foreign_key: true |
+| plan            | references | null: false, foreign_key: true |
+| user            | references | null: false, foreign_key: true |
 
 ### Association
 
