@@ -53,24 +53,29 @@
 <section id="new">
 <h2>提案ネタ一覧</h2>
   <%= link_to '新規投稿', new_plan_path %>
-<dl>
-<%# <dt>2019/04/22</dt>
-<dd>より初心者が使いやすいよう少し調整。古いものを使っている人はそのままでOKです。</dd>
-<dt>2017/10/06</dt>
-<dd>初心者向け無料ホームページテンプレートtp_beginner5公開。</dd>
-<dt>20XX/00/00</dt>
-<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
-<dt>20XX/00/00</dt>
-<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
-<dt>20XX/00/00</dt>
-<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
-<dt>20XX/00/00</dt>
-<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
-<dt>20XX/00/00</dt>
-<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
-<dt>20XX/00/00</dt>
-<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd> %>
-</dl>
+
+  <ul class='item-lists'>
+    <h3 class='item-name'>
+      <div class='plan-name'>提案プラン</div>
+      <div class='plan-name'>顧客名</div>
+      <div class='plan-name'>顧客ステータス</div>
+      <div class='plan-name'>金額</div>
+      <div class='plan-name'>受注ステータス</div>
+    </h3>
+    <% @plans.each do |plan| %>
+      <li class='list'>
+        <%=link_to plan_path(plan) do %>
+          <h3 class='item-name'>
+            <div><%= plan.title %></div>
+            <div><%= plan.client %></div>
+            <div><%= plan.client_status.name %></div>
+            <div><%= plan.price %>円</div>
+            <div><%= plan.sales_status.name %></div>
+          </h3>
+        <% end %>
+      </li>
+    <% end %>
+
 </section>
 
 <section>
