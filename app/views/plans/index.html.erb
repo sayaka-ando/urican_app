@@ -51,7 +51,7 @@
 <div id="contents">
 
 <section id="new">
-<h2>提案ネタ一覧</h2>
+<h2>プラン一覧</h2>
   <%= link_to '新規投稿', new_plan_path %>
 
   <ul class='item-lists'>
@@ -62,23 +62,28 @@
       <div class='plan-name'>金額</div>
       <div class='plan-name'>受注ステータス</div>
     </h3>
-    <% @plans.each do |plan| %>
-      <li class='list'>
-        <%=link_to plan_path(plan) do %>
-          <h3 class='item-name'>
-            <div><%= plan.title %></div>
-            <div><%= plan.client %></div>
-            <div><%= plan.client_status.name %></div>
-            <div><%= plan.price %>円</div>
-            <div><%= plan.sales_status.name %></div>
-          </h3>
-        <% end %>
-      </li>
-    <% end %>
+
+  <% if user_signed_in? %>
+    <%# <% if current_user.id == @plans.user_id %>
+      <% @plans.each do |plan| %>
+        <li class='list'>
+          <%=link_to plan_path(plan) do %>
+            <h3 class='item-name'>
+              <div><%= plan.title %></div>
+              <div><%= plan.client %></div>
+              <div><%= plan.client_status.name %></div>
+              <div><%= plan.price %>円</div>
+              <div><%= plan.sales_status.name %></div>
+            </h3>
+          <% end %>
+        </li>
+      <% end %>
+    <%# <% end %>
+  <% end %>
 
 </section>
 
-<section>
+<%# <section>
 
 <h2>テンプレートのご利用前に必ずお読み下さい</h2>
 
@@ -92,7 +97,7 @@
 <h3>当テンプレートの詳しい使い方は</h3>
 <p><a href="about.html">こちらをご覧下さい。</a></p>
 
-</section>
+</section> %>
 
 </div>
 <!--/contents-->
