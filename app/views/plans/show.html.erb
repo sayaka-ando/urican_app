@@ -78,7 +78,7 @@
       </table>
       <% if user_signed_in?%>
         <% if current_user.id == @plan.user_id %>
-          <%= link_to '商品の編集', edit_plan_path(@plan.id), class: "item-red-btn" %>
+          <%= link_to '編集', edit_plan_path(@plan.id), class: "item-red-btn" %>
           <%= link_to '削除', plan_path(@plan.id), method: :delete, class:'item-destroy' %>
         <% end %>
       <% end %>

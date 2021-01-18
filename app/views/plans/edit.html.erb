@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>初心者向けホームページテンプレート tp_beginner5</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ここにサイト説明を入れます">
+<meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
+<link rel="stylesheet" href="css/style.css">
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+
+<div id="container">
+
+<header>
+
+<div>
+  <%= link_to 'urican_app', root_path, class:"menubar" %>
+</div>
+
+<nav id="menubar">
+<ul>
+  <% if user_signed_in? %>
+    <li><%= link_to current_user.name, "#", class: "user-nickname" %></li>
+    <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"logout" %></li>
+  <% else %>
+    <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+    <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+  <% end %>
+</ul>
+</nav>
+
+<div id="contents">
+
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">提案の情報を入力</h2>
+    <%= form_with model: @plan, url: plan_path, local: true do |f| %>
+
+    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+    <%= render 'shared/error_messages', model: f.object %>
+    <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+
+    <div class="new-items">
+      <div class="weight-bold-text">
+        提案名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :title, class:"items-text", id:"item-name", placeholder:"提案内容を記入してください", maxlength:"40" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          顧客名
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :client, class:"items-text", id:"item-info", placeholder:"例：株式会社〇〇" ,maxlength:"40" %>
+      </div>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          提案金額
+          <span class="indispensable">必須</span>
+        </div>
+        <span class="sell-yen">¥</span>
+         <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）500000" %>          </div>
+      </div>
+    </div>
+
+    <div class="items-detail">
+      <div class="weight-bold-text"></div>
+      <div class="form">
+        <div class="weight-bold-text">
+          顧客ステータス
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:client_status_id, ClientStatus.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        <div class="weight-bold-text">
+          提案ステータス
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:sales_status_id, SalesStatus.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
+      </div>
+    </div>
+
+    <div class="new-items">
+      <div class="weight-bold-text">
+        提案メモ
+      <%= f.text_area :memo, class:"items-text", id:"item-name", placeholder:"提案内容・状況・備考など", maxlength:"150" %>
+      </div>
+      <div class="weight-bold-text">
+        ナレッジ
+        <%= f.text_area :knowledge, class:"items-text", id:"item-info", placeholder:"共有したいことがあれば記載しましょう。例)工夫したこと、業界の情報、お客様の反応など" ,maxlength:"150" %>
+      </div>
+      
+    </div>
+
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "変更する", class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+</div>
+
+<!--/contents-->
+
+<footer>
+<small>Copyright&copy; <a href="index.html">SAMPLE SITE</a> All Rights Reserved.</small>
+<span class="pr">《<a href="https://template-party.com/" target="_blank">Web Design:Template-Party</a>》</span>
+</footer>
+
+</div>
+<!--/container-->
+
+</body>
+</html>
