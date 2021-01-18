@@ -1,6 +1,6 @@
 class PlansController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_plan, only: [:show]
   before_action :login_state, only: [:edit, :destroy]
 
   def index
@@ -27,6 +27,10 @@ class PlansController < ApplicationController
 
   def plan_params
     params.require(:plan).permit(:title, :client, :price, :client_status_id, :sales_status_id, :memo, :knowledge).merge(user_id: current_user.id)
+  end
+
+  def set_plan
+    @plan = Plan.find(params[:id])
   end
 
 end
