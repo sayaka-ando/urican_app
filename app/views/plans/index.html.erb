@@ -46,8 +46,15 @@
 
 <div id="contents">
 
+
 <h2>売上状況</h2>
-<div><%= @price_sum %></div>
+<% if user_signed_in? %>
+  <%= link_to '目標を入力する', new_performance_path %>
+  <div>目標<%= @goal %>円</div>
+  <div>受注<%= @price_sum %>円</div>
+<% else %>
+  <div>自分の進捗を確認するにはログインが必要です！</div>
+<% end %>
 
 <section id="new">
 <h2>プラン一覧</h2>
