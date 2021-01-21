@@ -14,7 +14,35 @@
 
 <h2>現在の売上</h2>
 <% if user_signed_in? %>
-  <div>全体の受注<%= @price_sum %>円</div> ／<div>自分の受注<%= @my_price_sum %>円</div>
+  <canvas id="myChart" width="60％" height="20%" ></canvas>
+  <script>
+  var ctx = document.getElementById("myChart");
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      datasets: [{
+        label: '全体実績',
+        data: [<%= @price_sum %>],
+        backgroundColor: "rgba(130,201,169,0.5)"
+    },{
+        label: '個人実績',
+        data: [<%= @my_price_sum %>],
+        backgroundColor: "rgba(219,39,91,0.5)"
+    }]
+   },
+   options: {
+     scales: {
+       yAxes: [{
+         ticks: {
+           beginAtZero: true
+         }
+       }]
+     }
+   }
+  });
+  </script>
+
+  全体：<%= @price_sum %>円 ／個人：<%= @my_price_sum %>円
 <% else %>
   <div>確認するにはログインが必要です！</div>
 <% end %>
@@ -30,6 +58,7 @@
       <div class='plan-name'>顧客ステータス</div>
       <div class='plan-name'>金額</div>
       <div class='plan-name'>受注ステータス</div>
+      <div class='plan-name'>担当</div>
     </h3>
 
   <% if user_signed_in? %>
@@ -42,6 +71,7 @@
               <div><%= plan.client_status.name %></div>
               <div><%= plan.price %>円</div>
               <div><%= plan.sales_status.name %></div>
+              <div><%= plan.user.name %></div>
             </h3>
           <% end %>
       <% end %>
@@ -49,6 +79,8 @@
   <% end %>
 
 </section>
+
+<h2>ナレッジ一覧</h2>
 
 <%# <section>
 

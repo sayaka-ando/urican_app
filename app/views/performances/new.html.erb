@@ -20,7 +20,7 @@
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "保存する", class:"sell-btn" %>
-      <%=link_to 'もどる', user_path, class:"back-btn" %>
+      <%=link_to 'もどる', "/users/#{current_user.id}", class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
     <% end %>

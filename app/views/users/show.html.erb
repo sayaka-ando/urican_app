@@ -37,8 +37,7 @@
   <div>個人目標：<%= @goal.goal %>円 ／受注実績：<%= @my_price_sum %>円</div>
   <div>達成まで：<%= @goal.goal.to_i - @my_price_sum.to_i %>円</div>
 
-  目標を<%= link_to '入力', new_performance_path(@performance) %> ／
-  <%= link_to '修正', edit_performance_path(@performance.id) %>
+  目標を<%= link_to '修正', edit_performance_path %>
 
 
 
