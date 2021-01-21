@@ -72,4 +72,10 @@ gem 'devise'
 
 gem 'active_hash'
 
+gem 'chartkick'
+
+gem 'groupdate'
+
+gem 'chart-js-rails', '~> 0.1.4'
+
 

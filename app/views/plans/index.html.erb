@@ -1,39 +1,4 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>初心者向けホームページテンプレート tp_beginner5</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="ここにサイト説明を入れます">
-<meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
-<link rel="stylesheet" href="css/style.css">
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-</head>
-
-<body>
-
-<div id="container">
-
-<header>
-<div>
-  <%= link_to 'urican_app', root_path, class:"menubar" %>
-</div>
-
-<nav id="menubar">
-<ul>
-  <% if user_signed_in? %>
-    <li><%= link_to current_user.name, user_path(current_user.id), class: "user-nickname" %></li>
-    <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"logout" %></li>
-  <% else %>
-    <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-    <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-  <% end %>
-</ul>
-</nav>
+<%= render "shared/header" %>
 
 <%# <nav id="menubar">
 <ul>
@@ -49,9 +14,35 @@
 
 <h2>現在の売上</h2>
 <% if user_signed_in? %>
-  <%= link_to '目標を入力する', new_performance_path(@performance) %>
-  <div>全体の受注<%= @price_sum %>円</div>
-  <div>自分の受注<%= @my_price_sum %>円</div>
+  <canvas id="myChart" width="60％" height="20%" ></canvas>
+  <script>
+  var ctx = document.getElementById("myChart");
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      datasets: [{
+        label: '全体実績',
+        data: [<%= @price_sum %>],
+        backgroundColor: "rgba(130,201,169,0.5)"
+    },{
+        label: '個人実績',
+        data: [<%= @my_price_sum %>],
+        backgroundColor: "rgba(219,39,91,0.5)"
+    }]
+   },
+   options: {
+     scales: {
+       yAxes: [{
+         ticks: {
+           beginAtZero: true
+         }
+       }]
+     }
+   }
+  });
+  </script>
+
+  全体：<%= @price_sum %>円 ／個人：<%= @my_price_sum %>円
 <% else %>
   <div>確認するにはログインが必要です！</div>
 <% end %>
@@ -67,6 +58,7 @@
       <div class='plan-name'>顧客ステータス</div>
       <div class='plan-name'>金額</div>
       <div class='plan-name'>受注ステータス</div>
+      <div class='plan-name'>担当</div>
     </h3>
 
   <% if user_signed_in? %>
@@ -79,6 +71,7 @@
               <div><%= plan.client_status.name %></div>
               <div><%= plan.price %>円</div>
               <div><%= plan.sales_status.name %></div>
+              <div><%= plan.user.name %></div>
             </h3>
           <% end %>
       <% end %>
@@ -86,6 +79,8 @@
   <% end %>
 
 </section>
+
+<h2>ナレッジ一覧</h2>
 
 <%# <section>
 
