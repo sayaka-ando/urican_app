@@ -26,7 +26,7 @@
 <nav id="menubar">
 <ul>
   <% if user_signed_in? %>
-    <li><%= link_to current_user.name, "#", class: "user-nickname" %></li>
+    <li><%= link_to current_user.name, "/users/#{current_user.id}", class: "user-nickname" %></li>
     <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"logout" %></li>
   <% else %>
     <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
@@ -34,32 +34,3 @@
   <% end %>
 </ul>
 </nav>
-
-<%# <nav id="menubar">
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="gallery.html">Gallery</a></li>
-<li><a href="link.html">Link</a></li>
-</ul>
-</nav> %>
-
-<div id="contents">
-
-<h2>売上状況</h2>
-<%= link_to '目標を入力する', new_performance_path %>
-<div>目標<%= @goal %>円</div>
-
-</div>
-<!--/contents-->
-
-<footer>
-<small>Copyright&copy; <a href="index.html">SAMPLE SITE</a> All Rights Reserved.</small>
-<span class="pr">《<a href="https://template-party.com/" target="_blank">Web Design:Template-Party</a>》</span>
-</footer>
-
-</div>
-<!--/container-->
-
-</body>
-</html>

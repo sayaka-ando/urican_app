@@ -124,8 +124,31 @@ header {
 	justify-content: space-around;
 }
 
-.plan-name {
-	
+
+/*plan.showページ
+---------------------------------------------------------------------------*/
+.detail-table {
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+}
+
+.detail-item {
+	width: 200px;
+	height: 20px;
+	clear: both;
+	margin-bottom: 10px;
+	padding: 8px 20px 10px 20px;
+	background: #fff;	/*背景色*/
+	border: 1px solid #ccc;	/*枠線の幅、線種、色*/
+	border-radius: 10px;	/*角を丸くする指定。この１行を削除すれば角丸がなくなります。*/
+
+}
+
+.detail-value {
+	margin-left: 20px;
+	width: 200px;
+	height: 20px;
 }
 
 /*Galleryページ
@@ -184,39 +207,6 @@ footer .pr {
 	padding-left: 8em;
 }
 
-/*テーブル
----------------------------------------------------------------------------*/
-/*テーブル１行目に入った見出し部分（※caption）*/
-.ta1 caption {
-	border: 1px solid #999;	/*テーブルの枠線の幅、線種、色*/
-	border-bottom: none;	/*下線だけ消す*/
-	text-align: left;		/*文字を左寄せ*/
-	background: #eee;		/*背景色*/
-	font-weight: bold;		/*太字に*/
-	padding: 10px;			/*ボックス内の余白*/
-}
-/*テーブル１行目に入った見出し部分（※tamidashi）*/
-.ta1 th.tamidashi {
-	width: auto;
-	text-align: left;	/*左よせ*/
-	background: #eee;	/*背景色*/
-}
-/*ta1テーブルブロック設定*/
-.ta1 {
-	table-layout: fixed;
-	width: 100%;
-	margin: 0 auto 20px;
-}
-.ta1, .ta1 td, .ta1 th {
-	word-break: break-all;
-	border: 1px solid #999;	/*テーブルの枠線の幅、線種、色*/
-	padding: 10px;			/*テーブル内の余白*/
-}
-/*テーブルの左側ボックス*/
-.ta1 th {
-	text-align: center;	/*センタリング*/
-	width: 30%;			/*幅*/
-}
 
 /*トップページのNEWアイコン
 ---------------------------------------------------------------------------*/

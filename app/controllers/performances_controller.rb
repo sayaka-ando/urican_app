@@ -1,12 +1,8 @@
 class PerformancesController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!
   before_action :set_performance, only: [:edit, :update, :destroy]
   before_action :login_state, only: [:edit, :destroy]
 
-
-  def index
-    @goal = Performance.where(user: current_user.id)
-  end
 
   def new
     @performance = Performance.new
@@ -26,7 +22,7 @@ class PerformancesController < ApplicationController
 
   def update
     if @performance.update(performance_params)
-      redirect_to performance_path
+      redirect_to user_path
     else
       render :edit
     end
@@ -38,7 +34,7 @@ class PerformancesController < ApplicationController
     params.require(:performance).permit(:goal).merge(user_id: current_user.id)
   end
 
-  def set_plan
+  def set_performance
     @performance = Performance.find(params[:id])
   end
 
