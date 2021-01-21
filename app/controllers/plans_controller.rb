@@ -5,6 +5,16 @@ class PlansController < ApplicationController
 
   def index
     @plans = Plan.includes(:user).order("created_at DESC")
+
+    @price = Plan.where(sales_status_id: 3)
+    @price_sum = @price.sum(:price)
+
+    if user_signed_in?
+      @my_price = Plan.where(user: current_user.id, sales_status_id: 3)
+      @my_price_sum = @my_price.sum(:price)
+    end
+    # @set_goal = Plan.find(user: current_user.id)
+    # @goal = @set_goal.find()
   end
 
   def new

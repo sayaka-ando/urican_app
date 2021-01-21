@@ -28,19 +28,17 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :performance
 
 ## performances テーブル
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | goal            | integer    | null: false                    |
-| total           | references | null: false, foreign_key: true |
+| user            | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_many :plans
 
 # アプリケーション名: urican
 - アプリケーション概要:	売上・提案管理、ナレッジ共有

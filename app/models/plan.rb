@@ -8,7 +8,6 @@ class Plan < ApplicationRecord
     validates :sales_status_id,  numericality: { other_than: 1 } 
   end
 
-  # belongs_to :performance
   belongs_to :user
 
   extend ActiveHash::Associations::ActiveRecordExtensions

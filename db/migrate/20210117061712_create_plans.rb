@@ -9,7 +9,7 @@ class CreatePlans < ActiveRecord::Migration[6.0]
       t.integer :sales_status_id,  null: false
       t.text    :memo
       t.text    :knowledge
-      t.references :user,       null: false, foreign_key: true
+      t.references :user,         null: false, foreign_key: true
 
       t.timestamps
     end
