@@ -26,7 +26,7 @@
 <nav id="menubar">
 <ul>
   <% if user_signed_in? %>
-    <li><%= link_to current_user.name, "#", class: "user-nickname" %></li>
+    <li><%= link_to current_user.name, user_path(current_user.id), class: "user-nickname" %></li>
     <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"logout" %></li>
   <% else %>
     <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
@@ -47,13 +47,13 @@
 <div id="contents">
 
 
-<h2>売上状況</h2>
+<h2>現在の売上</h2>
 <% if user_signed_in? %>
-  <%= link_to '目標を入力する', new_performance_path %>
-  <div>目標<%= @goal %>円</div>
-  <div>受注<%= @price_sum %>円</div>
+  <%= link_to '目標を入力する', new_performance_path(@performance) %>
+  <div>全体の受注<%= @price_sum %>円</div>
+  <div>自分の受注<%= @my_price_sum %>円</div>
 <% else %>
-  <div>自分の進捗を確認するにはログインが必要です！</div>
+  <div>確認するにはログインが必要です！</div>
 <% end %>
 
 <section id="new">
@@ -72,7 +72,6 @@
   <% if user_signed_in? %>
     <%# <% if current_user.id == @plans.user_id %>
       <% @plans.each do |plan| %>
-        <li class='list'>
           <%=link_to plan_path(plan) do %>
             <h3 class='item-name'>
               <div><%= plan.title %></div>
@@ -82,7 +81,6 @@
               <div><%= plan.sales_status.name %></div>
             </h3>
           <% end %>
-        </li>
       <% end %>
     <%# <% end %>
   <% end %>
