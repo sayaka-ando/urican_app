@@ -10,6 +10,4 @@ class UsersController < ApplicationController
 
   end
 
-  # params.require(:user).permit(user_id: current_user.id).merge(plan_id: palams[:plan_id], performance_id: params[:performance_id])
-
 end
