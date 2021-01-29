@@ -13,8 +13,9 @@ class PlansController < ApplicationController
       @my_price = Plan.where(user: current_user.id, sales_status_id: 3)
       @my_price_sum = @my_price.sum(:price)
     end
-    # @set_goal = Plan.find(user: current_user.id)
-    # @goal = @set_goal.find()
+
+    # if Plan.knowledge:).exists?
+
   end
 
   def new
