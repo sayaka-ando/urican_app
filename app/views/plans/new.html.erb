@@ -6,9 +6,7 @@
     <h2 class="items-sell-title">提案の情報を入力</h2>
     <%= form_with model: @plan, url: plans_path, local: true do |f| %>
 
-    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
     <%= render 'shared/error_messages', model: f.object %>
-    <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
     <div class="new-items">
       <div class="weight-bold-text">
@@ -61,25 +59,19 @@
       
     </div>
 
-    <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "保存する", class:"sell-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
-    <%# /下部ボタン %>
   </div>
   <% end %>
 </div>
 
-<!--/contents-->
 
 <footer>
-<small>Copyright&copy; <a href="index.html">SAMPLE SITE</a> All Rights Reserved.</small>
-<span class="pr">《<a href="https://template-party.com/" target="_blank">Web Design:Template-Party</a>》</span>
 </footer>
 
 </div>
-<!--/container-->
 
 </body>
 </html>
