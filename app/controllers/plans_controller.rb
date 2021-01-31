@@ -14,8 +14,8 @@ class PlansController < ApplicationController
       @my_price_sum = @my_price.sum(:price)
     end
 
-    # if Plan.knowledge:).exists?
-
+    @knowledge =Plan.where.not(knowledge: '')
+    
   end
 
   def new
