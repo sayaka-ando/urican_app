@@ -6,11 +6,12 @@ body {
 	margin: 0px;
 	padding: 0px;
 	-webkit-text-size-adjust: none;
-	color: #756754;	/*全体の文字色*/
+	color: #756754;
 	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;	/*フォント種類*/
-	font-size: 16px;	/*文字サイズ*/
-	line-height: 2;		/*行間*/
-	background: #f7f5e2;	/*背景色*/
+	font-size: 16px;
+	line-height: 2;
+	background: white;
+	text-align: center;
 }
 h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,form,figure,form,select,input,textarea {margin: 0px;padding: 0px;font-size: 100%;font-weight: normal;}
 ul {list-style-type: none;}
@@ -22,86 +23,90 @@ iframe {width: 100%;}
 /*リンク（全般）設定
 ---------------------------------------------------------------------------*/
 a {
-	color: #756754;	/*リンクテキストの色*/
-	transition: 0.3s;	/*マウスオン時の移り変わるまでの時間設定。0.3秒。*/
+	color: #756754;
+	transition: 0.3s;
 }
 a:hover {
-	color: #799a3a;	/*マウスオン時の文字色*/
+	color: #799a3a;
 }
 
-/*コンテナー（ホームページを囲む一番外側のブロック）
----------------------------------------------------------------------------*/
 #container {
-	max-width: 1400px;	/*ブロックの最大幅*/
+	max-width: 1400px;
 	margin: 0 auto;
 	padding: 0 3%;
 }
 
-/*ヘッダー（ロゴが入った最上段のブロック）
+/*ヘッダー
 ---------------------------------------------------------------------------*/
 /*headerブロック*/
-header {
-	text-align: center;	/*内容を中央よせ*/
-}
-/*ロゴ画像設定*/
-#logo img {
-	width: 400px;	/*画像幅*/
-	margin: 40px auto 40px;	/*ロゴの上と下に40pxスペースを空ける設定*/
+.hwrapper{
+	width: 100%;
+	background-color: #f5f1cf;
+	margin-bottom: 30px;
 }
 
-/*トップページのメイン画像
----------------------------------------------------------------------------*/
-/*画像ブロック*/
-#mainimg img {
-	border-radius: 10px;	/*角を丸くする指定。この１行を削除すれば角丸がなくなります。*/
-	margin-bottom: 40px;	/*下に空けるスペース*/
+.header {
+	margin: auto;
+  max-width: 800px;
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	font-weight: 800;
+}
+
+.icon a {
+	text-decoration: none;
+	font-size: 25px;
+	padding: 15px 30px;
+}
+
+.icon:hover {
+	color: #799a3a;
+	border-bottom: 4px solid #799a3a;
 }
 
 /*メニュー
 ---------------------------------------------------------------------------*/
-/*メニュー全体を囲むブロック*/
-#menubar {
-	text-align: center;		/*文字をセンタリング*/
-	font-size: 18px;		/*文字サイズ*/
-	margin-bottom: 40px;	/*下に空けるスペース*/
-}
 /*メニュー１個あたりの設定*/
-#menubar li {
-	display: inline;	/*横並びにする設定*/
-}
-#menubar li a {
-	text-decoration: none;
-	padding: 15px 30px;	/*各メニュー内の余白。上下に15px、左右に30pxあけるという意味。*/
-}
-/*マウスオン時の設定*/
-#menubar li a:hover {
-	color: #799a3a;	/*文字色*/
-	border-bottom: 4px solid #799a3a;	/*下線の幅、線種、色*/
+.menubar li {
+	display: inline;
 }
 
-/*コンテンツ（見出しバーや文字などが入っているブロック）
+.menubar li a {
+	text-decoration: none;
+	padding: 15px 30px;
+	font-weight: 400;
+	font-size: 16px;
+}
+/*マウスオン時の設定*/
+.menubar li a:hover {
+	color: #799a3a;
+	border-bottom: 4px solid #799a3a;
+}
+
+/*コンテンツ
 ---------------------------------------------------------------------------*/
 /*コンテンツのh2タグの設定*/
 #contents h2 {
 	clear: both;
 	margin-bottom: 20px;
-	color: #6c6050;		/*文字色*/
-	padding: 10px 20px;	/*上下、左右への余白*/
-	background: #ffe500;	/*背景色*/
-	border-radius: 10px;	/*角を丸くする指定。この１行を削除すれば角丸がなくなります。*/
+	color: #6c6050;
+	padding: 10px 20px;
+	background: #ffe500;
+	border-radius: 10px;
 }
 /*コンテンツのh3タグの設定*/
 #contents h3 {
 	clear: both;
 	margin-bottom: 20px;
-	padding: 8px 20px;	/*上下、左右への余白*/
-	background: #fff;	/*背景色*/
-	border: 1px solid #ccc;	/*枠線の幅、線種、色*/
-	border-radius: 10px;	/*角を丸くする指定。この１行を削除すれば角丸がなくなります。*/
+	padding: 8px 20px;
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 10px;
 }
 /*コンテンツのp(段落)タグ設定*/
 #contents p {
-	padding: 0px 20px 20px;	/*上、左右、下への余白*/
+	padding: 0px 20px 20px;
 }
 /*他。微調整。*/
 #contents p + p {
@@ -135,10 +140,9 @@ header {
 	clear: both;
 	margin-bottom: 10px;
 	padding: 8px 20px 10px 20px;
-	background: #fff;	/*背景色*/
-	border: 1px solid #ccc;	/*枠線の幅、線種、色*/
-	border-radius: 10px;	/*角を丸くする指定。この１行を削除すれば角丸がなくなります。*/
-
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 10px;
 }
 
 .detail-value {
@@ -149,67 +153,23 @@ header {
 
 /*Galleryページ
 ---------------------------------------------------------------------------*/
-/*各ブロックごとの設定*/
 .list {
 	overflow: hidden;
-	border-bottom: 1px solid #ccc;	/*下線の幅、線種、色*/
-	padding: 20px;	/*ボックス内の余白*/
+	border-bottom: 1px solid #ccc;
+	padding: 20px;
 }
-/*h4見出しの設定*/
 .list h4 {
-	color: #799a3a;	/*文字色*/
+	color: #799a3a;
 }
 /*画像の設定*/
 .list img {
-	width: 20%;			/*画像幅*/
-	float: left;		/*画像を左に回り込み*/
-	margin-right: 3%	/*画像の右側に空けるスペース*/
+	width: 20%;
+	float: left;
+	margin-right: 3%
 }
 /*段落タグ*/
 .list p {
 	padding: 0 !important;
-}
-
-/*フッター(ページ最下部のcopyrightのパーツ)設定
----------------------------------------------------------------------------*/
-footer {
-	clear: both;
-	text-align: center;	/*文字をセンタリング*/
-	padding: 30px 0px 10px;	/*上、左右、下へのボックス内の余白*/
-}
-footer a {
-	text-decoration: none;
-	border: none;
-}
-
-/*ブロック全体の設定*/
-#new dl {
-	padding: 0px 20px;	/*上下、左右へのブロック内の余白*/
-	margin-bottom: 20px;	/*ブロックの下(外側)に空ける余白*/
-}
-/*日付設定*/
-#new dt {
-	font-weight: bold;	/*太字にする設定。標準がいいならこの行削除。*/
-	float: left;
-	width: 8em;
-}
-/*記事設定*/
-#new dd {
-	padding-left: 8em;
-}
-
-
-/*トップページのNEWアイコン
----------------------------------------------------------------------------*/
-.newicon {
-	background: #F00;	/*背景色*/
-	color: #FFF;		/*文字色*/
-	font-size: 70%;
-	line-height: 1.5;
-	padding: 2px 5px;
-	border-radius: 2px;
-	margin: 0px 5px;
-	vertical-align: text-top;
 }
 
 /*その他
@@ -224,33 +184,9 @@ footer a {
 .r {text-align: right;}
 .l {text-align: left;}
 
-
-
 /*画面幅580px以下の設定
 ------------------------------------------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-width:580px){
-
-/*全体の設定
----------------------------------------------------------------------------*/
-body {
-	font-size: 12px;	/*文字サイズ*/
-	line-height: 1.5;	/*行間*/
-}
-
-/*メニュー１個あたりの設定*/
-#menubar li {
-	display: block;	/*縦並びにする設定*/
-	margin-bottom: 10px;
-}
-#menubar li a {
-	text-decoration: none;
-	padding: 8px 30px;	/*各メニュー内の余白。*/
-}
-
-/*各ブロックごとの設定*/
-.list {
-	padding: 10px;	/*ボックス内の余白*/
-}
 
 .ws,.wl {width: 94%;}
 
