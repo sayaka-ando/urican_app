@@ -87,17 +87,15 @@
     <div class='plan-name'>ナレッジ内容</div>
   </h3>
 
-  <%# <% if @plans.knowledge.present? %> %>
-    <% @plans.each do |plan| %>
-      <%=link_to plan_path(plan) do %>
+  <% @knowledge.each do |knowledge| %>
+      <%=link_to plan_path(knowledge) do %>
       <h3 class='item-name'>
-        <div><%= plan.client %></div>
-        <div><%= plan.user.name %></div>
-        <div><%= plan.knowledge %></div>
+        <div><%= knowledge.client %></div>
+        <div><%= knowledge.user.name %></div>
+        <div><%= knowledge.knowledge %></div>
       </h3>
       <% end %>
-    <% end %>
-  <%# <% end %> %>
+  <% end %>
 
 </div>
 
